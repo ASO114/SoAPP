@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 JceInputStream jis = new JceInputStream(
-                        FileUtils.readFileToByteArray("/mnt/sdcard/u0.trace"));
+                        FileUtils.readFileToByteArray("/mnt/sdcard/u1.trace"));
                 jis.setServerEncoding("utf-8");
                 PkgRsp rsp = new PkgRsp();
                 rsp.readFrom(jis);

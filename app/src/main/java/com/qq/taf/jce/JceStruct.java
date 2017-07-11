@@ -23,11 +23,24 @@ public abstract class JceStruct implements java.io.Serializable {
 
 	public static final int JCE_MAX_STRING_LENGTH = 100 * 1024 * 1024;
 
+	public static String toDisplaySimpleString(JceStruct paramJceStruct)
+	{
+		if (paramJceStruct == null) {
+			return null;
+		}
+		StringBuilder localStringBuilder = new StringBuilder();
+		paramJceStruct.displaySimple(localStringBuilder, 0);
+		return localStringBuilder.toString();
+	}
+
+
 	public abstract void writeTo(JceOutputStream os);
 
 	public abstract void readFrom(JceInputStream is);
 
 	public abstract void display(StringBuilder sb, int level);
+
+	public void displaySimple(StringBuilder paramStringBuilder, int paramInt) {}
 
 	public JceStruct newInit() {
 		return null;

@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * 数据读取流
- * 
+ *
  * @author meteorchen
  *
  */
@@ -22,7 +22,7 @@ public final class JceInputStream {
 
 	/**
 	 * 头数据
-	 * 
+	 *
 	 * @author meteorchen
 	 *
 	 */
@@ -60,10 +60,14 @@ public final class JceInputStream {
 		}
 		this.bs = ByteBuffer.wrap(bs);
 	}
+	public void wrap(byte[] paramArrayOfByte)
+	{
+		this.bs = ByteBuffer.wrap(paramArrayOfByte);
+	}
 
 	/**
 	 * 读取数据头
-	 * 
+	 *
 	 * @param hd
 	 *            读取到的头信息
 	 * @param bb
@@ -962,7 +966,7 @@ public final class JceInputStream {
 		}
 	}
 
-	protected String sServerEncoding = "UTF-8";
+	protected String sServerEncoding = "GBK";
 
 	public int setServerEncoding(String se) {
 		sServerEncoding = se;
