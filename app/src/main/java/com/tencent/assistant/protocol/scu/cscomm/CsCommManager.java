@@ -14,21 +14,17 @@ import java.util.HashMap;
  */
 
 public class CsCommManager {
-    public static CsCommManager a;
+    public static CsCommManager csCommManager;
 
     static {
         System.loadLibrary("yyb_csech");
     }
 
-    public static CsCommManager a() {
-        try {
-            if (a == null) {
-                a = new CsCommManager();
-            }
-            CsCommManager localCsCommManager = a;
-            return localCsCommManager;
-        } finally {
+    public static CsCommManager getInstance() {
+        if (csCommManager == null) {
+            csCommManager = new CsCommManager();
         }
+        return csCommManager;
     }
 
     public static native void clearAuthTicket();
