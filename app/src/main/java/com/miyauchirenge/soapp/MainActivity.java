@@ -2,9 +2,11 @@ package com.miyauchirenge.soapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.opos.cmn.nt.crypt.EncryptUtils;
 import com.tencent.assistant.protocol.jce.FlexPushInfo;
 import com.tencent.assistant.protocol.jce.GetAppDetailRequest;
 import com.tencent.assistant.protocol.jce.MultiCmdRequest;
@@ -25,22 +27,26 @@ import com.tencent.assistant.protocol.scu.cscomm.CsCommManager;
 
 import java.util.ArrayList;
 
+import joor.Reflect;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
     private CsCommManager csCommManager;
 
+    private View.OnClickListener yybOnClickListener;
+    private View.OnClickListener oppoOnClickListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button);
+        /*
         CsCommManager.clearAuthTicket();
         CsCommManager.startAuthComm(this.getApplication());
         csCommManager = CsCommManager.getInstance();
 
-
-        button.setOnClickListener(new View.OnClickListener() {
+        yybOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -147,6 +153,18 @@ public class MainActivity extends AppCompatActivity {
 //                CsCommManager.a().decryptResponse(rsp, rp);
 //                rp.display(new StringBuilder(), 0);
             }
-        });
+        };
+        */
+        oppoOnClickListener = new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String cipher = OppoAnalyzor.reflectEncrypt("1","359250055365538");
+                Log.i("oppoCipher","cipher=" + cipher);
+            }
+        };
+        button.setOnClickListener(oppoOnClickListener);
     }
+
+
 }
