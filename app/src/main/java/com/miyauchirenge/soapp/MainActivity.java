@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String cipher = OppoAnalyzor.reflectEncrypt("1","359250055365538");
                 Log.i("oppoCipher","cipher=" + cipher);
+
             }
         };
         button.setOnClickListener(oppoOnClickListener);

@@ -1,5 +1,6 @@
 package com.opos.cmn.nt.crypt;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class EncryptUtils {
     static {
@@ -9,6 +10,7 @@ public class EncryptUtils {
     private static final native String encrypt(String plain);
 
     public static final String executeEncrypt(String plain) {
+        Log.i("EncryptUtils","executeEncrypt thread= " + Thread.currentThread().toString());
         if(TextUtils.isEmpty(plain)) {
             return "";
         }
